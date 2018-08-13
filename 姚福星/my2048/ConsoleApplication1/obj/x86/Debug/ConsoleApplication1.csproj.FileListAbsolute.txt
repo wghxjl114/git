@@ -1,0 +1,5 @@
+F:\C#程序\my2048\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+F:\C#程序\my2048\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+F:\C#程序\my2048\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+F:\C#程序\my2048\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+F:\C#程序\my2048\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
