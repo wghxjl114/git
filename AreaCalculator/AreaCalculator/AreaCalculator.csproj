@@ -56,9 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Calculate.cs" />
     <Compile Include="Circle.xaml.cs">
       <DependentUpon>Circle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CircleCalculate.cs" />
     <Compile Include="Rectangle.xaml.cs">
       <DependentUpon>Rectangle.xaml</DependentUpon>
     </Compile>
@@ -68,6 +70,7 @@
     <Compile Include="Triangle.xaml.cs">
       <DependentUpon>Triangle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TriangleCalculate.cs" />
     <Page Include="Circle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

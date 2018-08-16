@@ -39,19 +39,10 @@ namespace AreaCalculator
 
         private void RectangleCalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (unit == "cm")
+            if (unit == "cm"||unit=="in")
             {
-                double data1 = Convert.ToDouble(RadiusTextbox.Text);
-                double area1 = PI * data1 * data1;
-                string a=area1.ToString("0.000");
-                AreaTextbox.Text = a+"cm^2";
-            }
-            else if (unit == "in")
-            {
-                double data1 = Convert.ToDouble(RadiusTextbox.Text);
-                double area1 = PI * 2.54*data1 *2.54* data1;
-                string a = area1.ToString("0.000");
-                AreaTextbox.Text = a+"cm^2";
+                CircleCalculate MyCircleCalculate = new CircleCalculate();
+                AreaTextbox.Text = MyCircleCalculate.CalculateArea(unit, RadiusTextbox.Text);
             }
             else
             {
