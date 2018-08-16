@@ -6,12 +6,23 @@
         xmlns:local="clr-namespace:AreaCalculator"
         mc:Ignorable="d"
         Title="AreaCalculator" Height="600" Width="800">
-    <Grid >
-        <Image Source="/Resources/background.jpg"></Image>
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="ForMainWindow">
+
+        </Style>
+    </Window.Resources>
+    <Grid Background="{StaticResource LinearGradientBlueBackground4}">
+
         <Label Content="Please choose the figure you want to calculate." Foreground="White" FontSize="24" FontFamily="Time NewRoman" HorizontalContentAlignment="Center"/>
-        <Button x:Name="RetangleButton" Content="Rectangle" Background="AliceBlue" FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20"  HorizontalAlignment="Left" Margin="300,125,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="RetangleButton_Click" />
-        <Button x:Name="SquareButton" Content="Square" Background="AliceBlue"  FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20" HorizontalAlignment="Left" Margin="300,245,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="SquareButton_Click" />
-        <Button x:Name="TriangleButton" Content="Triangle" Background="AliceBlue"  FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20" HorizontalAlignment="Left" Margin="300,355,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="TriangleButton_Click" />
-        <Button x:Name="CircleButton" Content="Circle" Background="AliceBlue"  FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20" HorizontalAlignment="Left" Margin="300,465,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="CircleButton_Click" />
+        <Button x:Name="RetangleButton" Content="Rectangle"  FontFamily="Microsoft Yahei" FontWeight="Black"  HorizontalAlignment="Left"
+                Margin="300,125,0,0" VerticalAlignment="Top" Style="{StaticResource MainWindowButton}" Width="200" Height="50" Click="RetangleButton_Click" />
+        <Button x:Name="SquareButton" Content="Square"   FontFamily="Microsoft Yahei" FontWeight="Black"  HorizontalAlignment="Left" 
+                Margin="300,245,0,0" VerticalAlignment="Top" Style="{StaticResource MainWindowButton}" Width="200" Height="50" Click="SquareButton_Click" />
+        <Button x:Name="TriangleButton" Content="Triangle"   FontFamily="Microsoft Yahei" FontWeight="Black"  HorizontalAlignment="Left" 
+                Margin="300,355,0,0" VerticalAlignment="Top" Style="{StaticResource MainWindowButton}" Width="200" Height="50" Click="TriangleButton_Click" />
+        <Button x:Name="CircleButton" Content="Circle"  FontFamily="Microsoft Yahei" FontWeight="Black"  HorizontalAlignment="Left" 
+                Margin="300,465,0,0" VerticalAlignment="Top" Style="{StaticResource MainWindowButton}" Width="200" Height="50" Click="CircleButton_Click" />
+        <Button x:Name="ExitButton" Content="EXIT"  FontFamily="Microsoft Yahei" FontWeight="Black"  HorizontalAlignment="Right" 
+                Margin="0,0,44.6,50.4" VerticalAlignment="Bottom" Style="{StaticResource MainWindowButton}"  Foreground="DarkBlue" FontSize="40" Width="155" Height="55" Click="ExitButton_Click" />
     </Grid>
 </Window>

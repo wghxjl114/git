@@ -17,8 +17,8 @@
         <Label Content="Radius" Foreground="White" FontSize="36" FontFamily="Time NewRoman" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,100,0,0" />
         <TextBox FontSize="36" Name="RadiusTextbox" Margin="100,180,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="50"/>
         <Label Content="Area" Foreground="White" FontSize="36" FontFamily="Time NewRoman" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,280,0,0" />
-        <TextBox FontSize="36" Name="AreaTextbox" Margin="100,350,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="50"/>
-        <Button x:Name="RectangleCalculateButton" Content="Calculate" Background="AliceBlue" FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="32"  HorizontalAlignment="Right" Margin="0,0,108,339" VerticalAlignment="Bottom" Width="180" Height="50" Click="RectangleCalculateButton_Click" />
-        <Button x:Name="RectangleOKButton" Content="OK" Background="AliceBlue" FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="36"  HorizontalAlignment="Right" Margin="0,0,30,30" VerticalAlignment="Bottom" Width="150" Height="50" Click="RectangleOKButton_Click" />
+        <TextBox FontSize="36" Name="AreaTextbox" Margin="100,350,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="50" IsReadOnly="True" />
+        <Button x:Name="RectangleCalculateButton" Content="Calculate"  FontFamily="Microsoft Yahei" FontWeight="Black"   HorizontalAlignment="Right" Margin="0,0,108,339" VerticalAlignment="Bottom" Width="180" Height="50" FontSize="32" Style="{StaticResource MainWindowButton}" Click="RectangleCalculateButton_Click" />
+        <Button x:Name="RectangleOKButton" Content="BACK"  FontFamily="Microsoft Yahei" FontWeight="Black"   HorizontalAlignment="Right" Margin="0,0,30,30" VerticalAlignment="Bottom" Width="150" Height="50"  Foreground="DarkBlue" FontSize="36" Style="{StaticResource MainWindowButton}" Click="RectangleOKButton_Click" />
     </Grid>
 </Window>

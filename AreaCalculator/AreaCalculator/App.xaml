@@ -4,6 +4,61 @@
              xmlns:local="clr-namespace:AreaCalculator"
              StartupUri="MainWindow.xaml" ShutdownMode="OnLastWindowClose">
     <Application.Resources>
-         
+        <LinearGradientBrush x:Key="LinearGradientBlueBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White" Offset="0" />
+            <GradientStop Color="Silver" Offset="0.5" />
+            <GradientStop Color="Gray" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="LinearGradientBlueBackground2" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Gray" Offset="0" />
+            <GradientStop Color="Silver" Offset="0.5" />
+            <GradientStop Color="Gray" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="LinearGradientBlueBackground3" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Gray" Offset="0" />
+            <GradientStop Color="Silver" Offset="0.5" />
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+        <RadialGradientBrush  x:Key="LinearGradientBlueBackground4"  GradientOrigin="0.5,0.5">
+            <GradientStop Color="Black" Offset="0.7"></GradientStop>
+            <GradientStop Color="Silver" Offset="0"></GradientStop>
+        </RadialGradientBrush>
+
+        <!--END-->
+
+        <Style x:Key="MainWindowButton" TargetType="{x:Type Button}" >
+            <Setter Property="Background" Value="{StaticResource LinearGradientBlueBackground}"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                                SnapsToDevicePixels="true" CornerRadius="10,10,10,10">
+                            <ContentPresenter x:Name="contentPresenter" 
+                                              Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" 
+                                              RecognizesAccessKey="True" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"  />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"  Value="true" >
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource LinearGradientBlueBackground3}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed"  Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource LinearGradientBlueBackground2}"/>
+                            </Trigger>
+                            
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+             
+        </Style>
+        
     </Application.Resources>
 </Application>

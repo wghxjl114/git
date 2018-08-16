@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
 
 namespace AreaCalculator
 {
@@ -19,6 +20,8 @@ namespace AreaCalculator
     /// </summary>
     public partial class Triangle : Window
     {
+        [DllImport("user32.dll")]
+        public static extern int MessageBeep(uint uType);
         public Triangle()
         {
             InitializeComponent();
@@ -63,6 +66,8 @@ namespace AreaCalculator
             }
             else
             {
+                uint Beep = 0x00000000;
+                MessageBeep(Beep);
                 MessageBox.Show("You must choose a unit!");
             }
         }
