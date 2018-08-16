@@ -1,0 +1,17 @@
+﻿<Window x:Class="AreaCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AreaCalculator"
+        mc:Ignorable="d"
+        Title="AreaCalculator" Height="600" Width="800">
+    <Grid >
+        <Image Source="/Resources/background.jpg"></Image>
+        <Label Content="Please choose the figure you want to calculate." Foreground="White" FontSize="24" FontFamily="Time NewRoman" HorizontalContentAlignment="Center"/>
+        <Button x:Name="RetangleButton" Content="Rectangle" Background="AliceBlue" FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20"  HorizontalAlignment="Left" Margin="300,125,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="RetangleButton_Click" />
+        <Button x:Name="SquareButton" Content="Square" Background="AliceBlue"  FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20" HorizontalAlignment="Left" Margin="300,245,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="SquareButton_Click" />
+        <Button x:Name="TriangleButton" Content="Triangle" Background="AliceBlue"  FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20" HorizontalAlignment="Left" Margin="300,355,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="TriangleButton_Click" />
+        <Button x:Name="CircleButton" Content="Circle" Background="AliceBlue"  FontFamily="Microsoft Yahei" FontWeight="Black" FontSize="20" HorizontalAlignment="Left" Margin="300,465,0,0" VerticalAlignment="Top" Width="200" Height="50" Click="CircleButton_Click" />
+    </Grid>
+</Window>
