@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Runtime.InteropServices;
 
 namespace AreaCalculator
 {
@@ -20,8 +19,6 @@ namespace AreaCalculator
     /// </summary>
     public partial class Rectangle : Window
     {
-        [DllImport("user32.dll")]
-        public static extern int MessageBeep(uint uType);
         public Rectangle()
         {
             InitializeComponent();
@@ -37,18 +34,18 @@ namespace AreaCalculator
 
         private void RectangleCalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (unit == "cm"||unit=="in")
+            if (Judge.IsNumber(LengthTextbox.Text) &&Judge.IsNumber(WidthTextbox.Text))
             {
                 Calculate MyCalculate = new Calculate();
-                RectangleAreaTextbox.Text= MyCalculate.CalculateArea(unit, LengthTextbox.Text, WidthTextbox.Text);
+                RectangleAreaTextbox.Text = MyCalculate.CalculateArea(unit, LengthTextbox.Text, WidthTextbox.Text);
             }
             else
             {
-                uint Beep = 0x00000000;
-                MessageBeep(Beep);
-                MessageBox.Show("You must choose a unit!");
+                Warning.Sound();
+                MessageBox.Show("The things you input must be numbers!");
             }
         }
+            
 
         private void RectangleOKButton_Click(object sender, RoutedEventArgs e)
         {
