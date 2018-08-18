@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Runtime.InteropServices;
 
 namespace AreaCalculator
 {
@@ -20,15 +19,12 @@ namespace AreaCalculator
     /// </summary>
     public partial class Circle : Window
     {
-        [DllImport("user32.dll")]
-        public static extern int MessageBeep(uint uType);
         public Circle()
         {
             InitializeComponent();
            
         }
         static string unit;
-        static double PI = 3.1415926;
         private void Unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem item = Unit.SelectedItem as ComboBoxItem;
@@ -39,17 +35,17 @@ namespace AreaCalculator
 
         private void RectangleCalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (unit == "cm"||unit=="in")
+            if (Judge.IsNumber(RadiusTextbox.Text))
             {
                 CircleCalculate MyCircleCalculate = new CircleCalculate();
                 AreaTextbox.Text = MyCircleCalculate.CalculateArea(unit, RadiusTextbox.Text);
             }
             else
             {
-                uint Beep = 0x00000000;
-                MessageBeep(Beep);
-                MessageBox.Show("You must choose a unit!");
+                Warning.Sound();
+                MessageBox.Show("The things you input must be numbers!");
             }
+            
         }
 
         private void RectangleOKButton_Click(object sender, RoutedEventArgs e)

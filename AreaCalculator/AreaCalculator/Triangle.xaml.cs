@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Runtime.InteropServices;
 
 namespace AreaCalculator
 {
@@ -20,8 +19,6 @@ namespace AreaCalculator
     /// </summary>
     public partial class Triangle : Window
     {
-        [DllImport("user32.dll")]
-        public static extern int MessageBeep(uint uType);
         public Triangle()
         {
             InitializeComponent();
@@ -44,28 +41,26 @@ namespace AreaCalculator
         }
         private void RectangleCalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (unit == "cm" || unit == "in")
+            if (Judge.IsNumber(Side1Textbox.Text) && Judge.IsNumber(Side2Textbox.Text) && Judge.IsNumber(Side3Textbox.Text))
             {
                 double data1 = Convert.ToDouble(Side1Textbox.Text);
                 double data2 = Convert.ToDouble(Side2Textbox.Text);
                 double data3 = Convert.ToDouble(Side3Textbox.Text);
-                if((data1+data2>data3)&&(data1+data3>data2)&&(data2+data3>data1))
-               {
+                if ((data1 + data2 > data3) && (data1 + data3 > data2) && (data2 + data3 > data1))
+                {
                     TriangleCalculate MyTriangleCalculate = new TriangleCalculate();
                     TriangleAreaTextbox.Text = MyTriangleCalculate.CalculateArea(unit, data1, data2, data3);
                 }
                 else
                 {
-                    uint Beep = 0x00000000;
-                    MessageBeep(Beep);
+                    Warning.Sound();
                     MessageBox.Show("This is not a triangle!");
                 }
             }
             else
             {
-                uint Beep = 0x00000000;
-                MessageBeep(Beep);
-                MessageBox.Show("You must choose a unit!");
+                Warning.Sound();
+                MessageBox.Show("The things you input must be numbers!");
             }
         }
 
@@ -74,21 +69,21 @@ namespace AreaCalculator
             MainWindow n = new MainWindow();
             n.Show();
             this.Close();
-           
+
         }
 
         private void RectangleCalculateButton2_Click(object sender, RoutedEventArgs e)
         {
-            if (unit2 == "cm"||unit2=="in")
+
+            if (Judge.IsNumber(Point1XTextbox.Text) && Judge.IsNumber(Point1YTextbox.Text) && Judge.IsNumber(Point2XTextbox.Text) && Judge.IsNumber(Point2YTextbox.Text) && Judge.IsNumber(Point3XTextbox.Text) && Judge.IsNumber(Point3YTextbox.Text))
             {
                 TriangleCalculate MyTriangleCalculate = new TriangleCalculate();
-                TriangleAreaTextbox2.Text = MyTriangleCalculate.CalculateArea2(unit2, Point1XTextbox.Text, Point1YTextbox.Text,Point2XTextbox.Text, Point2YTextbox.Text, Point3XTextbox.Text, Point3YTextbox.Text);
+                TriangleAreaTextbox2.Text = MyTriangleCalculate.CalculateArea(unit2, Point1XTextbox.Text, Point1YTextbox.Text, Point2XTextbox.Text, Point2YTextbox.Text, Point3XTextbox.Text, Point3YTextbox.Text);
             }
             else
             {
-                uint Beep = 0x00000000;
-                MessageBeep(Beep);
-                MessageBox.Show("You must choose a unit!");
+                Warning.Sound();
+                MessageBox.Show("The things you input must be numbers!");
             }
         }
     }

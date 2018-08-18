@@ -61,6 +61,8 @@
       <DependentUpon>Circle.xaml</DependentUpon>
     </Compile>
     <Compile Include="CircleCalculate.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="IsNumber.cs" />
     <Compile Include="Rectangle.xaml.cs">
       <DependentUpon>Rectangle.xaml</DependentUpon>
     </Compile>
