@@ -6,8 +6,9 @@ using System.Collections;
 
 namespace CH11
 {
-    public class Card
+    public class Card:ICloneable
     {
+        public object Clone() => MemberwiseClone();
         public readonly Rank rank;
         public readonly Suit suit;
 

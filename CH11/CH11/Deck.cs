@@ -5,10 +5,18 @@ using System.Text;
 
 namespace CH11
 {
-    public class Deck
+    public class Deck:ICloneable
     {
         private Cards cards = new Cards();
-
+        public object Clone()
+        {
+            Deck newDeck = new Deck(cards.Clone() as Cards);
+            return newDeck;
+        }
+        private Deck(Cards newCards)
+        {
+            cards = newCards;
+        }
         public Deck()
         {
             

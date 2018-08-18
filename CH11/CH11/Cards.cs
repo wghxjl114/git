@@ -8,8 +8,18 @@ using System.Collections;
 
 namespace CH11
 {
-    public class Cards: CollectionBase
+    public class Cards: CollectionBase, ICloneable
     {
+        public object Clone()
+        {
+            Cards newCards = new Cards();
+            foreach (Card sourceCard in List)
+            {
+                newCards.Add((Card)sourceCard.Clone());
+            }
+            return newCards;
+        }
+
         public void Add(Card newCard)
         {
             List.Add(newCard);
