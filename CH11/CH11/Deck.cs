@@ -7,6 +7,7 @@ namespace CH11
 {
     public class Deck:ICloneable
     {
+        public event EventHandler LastCardDrawn;
         private Cards cards = new Cards();
         public object Clone()
         {
@@ -33,7 +34,12 @@ namespace CH11
         public Card GetCard(int cardNum)
         {
             if (cardNum >= 0 && cardNum <= 51)
+            {
+                if ((cardNum == 51) && (LastCardDrawn != null))
+                    LastCardDrawn(this,EventArgs.Empty);
                 return cards[cardNum];
+            }
+                
             else
                 throw (new System.ArgumentOutOfRangeException("cardNum", cardNum, "Value must be between 0 and 51."));
         }
