@@ -17,13 +17,14 @@ using System.Xml.Serialization;
 namespace CardsGUI
 {
     /// <summary>
-    /// Options.xaml 的交互逻辑
+    /// StartGame.xaml 的交互逻辑
     /// </summary>
-    public partial class Options : Window
+    public partial class StartGame : Window
     {
-        public Options()
+        private GameOptions _gameOptions;
+        public void Options()
         {
-            if(_gameOptions==null)
+            if (_gameOptions == null)
             {
                 if (File.Exists("GameOptions.xml"))
                 {
@@ -38,27 +39,35 @@ namespace CardsGUI
             }
             DataContext = _gameOptions;
             InitializeComponent();
-            
+            if (_gameOptions.PlayAgainstComputer)
+                playerNamesListBox.SelectionMode = SelectionMode.Single;
+            else
+                playerNamesListBox.SelectionMode = SelectionMode.Extended;
         }
-        private GameOptions _gameOptions;
-
-        private void dumbRadioButton_Checked(object sender, RoutedEventArgs e)
+        public StartGame()
         {
-            _gameOptions.ComputerSkill = ComputerSkillLevel.Dumb;
+            InitializeComponent();
         }
-
-        private void goodRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void playerNamesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _gameOptions.ComputerSkill = ComputerSkillLevel.Good;
+            if (_gameOptions.PlayAgainstComputer)
+                okButton.IsEnabled = (playerNamesListBox.SelectedItems.Count == 1);
+            else
+                okButton.IsEnabled = (playerNamesListBox.SelectedItems.Count == _gameOptions.NumberOfPlayers);
         }
 
-        private void cheatingRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void addNewPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            _gameOptions.ComputerSkill = ComputerSkillLevel.Cheats;
+            if (!string.IsNullOrWhiteSpace(newPlayerTextBox.Text))
+                _gameOptions.AddPlayer(newPlayerTextBox.Text);
+            newPlayerTextBox.Text = string.Empty;
         }
-
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
+            foreach (string item in playerNamesListBox.SelectedItems)
+            {
+                _gameOptions.SelectedPlayers.Add(item);
+            }
             using (var stream = File.Open("GameOptions.xml", FileMode.Create))
             {
                 var serializer = new XmlSerializer(typeof(GameOptions));
