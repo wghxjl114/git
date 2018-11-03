@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using CH11;
 
 namespace CardsGUI
 {
@@ -69,11 +70,6 @@ namespace CardsGUI
             PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(propertyName));
         }
     }
-    [Serializable]
-    public enum ComputerSkillLevel
-    {
-        Dumb,
-        Good,
-        Cheats
-    }
+    
+    
 }
